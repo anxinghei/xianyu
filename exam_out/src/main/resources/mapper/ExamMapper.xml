@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.how2java.tmall.mapper.ExamMapper">
+
+	<insert id="add" parameterType="com.how2java.tmall.pojo.Exam">
+		insert into exam(name,userid,catid) values(#{name},#{userid},#{catid})
+	</insert>
+	
+	<select id="findByName" parameterType="String" resultType="com.how2java.tmall.pojo.Exam">
+		select * from exam where name=#{name}
+	</select>
+	
+	<select id="list" parameterType="Integer" resultType="com.how2java.tmall.pojo.Exam">
+		select * from exam where userid=#{userid}
+	</select>
+	
+</mapper>
