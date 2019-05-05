@@ -2,6 +2,8 @@ package com.how2java.tmall.controller;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,13 +34,13 @@ public class UserController {
 	ExamService examService;
 
 // ÓÃ»§µÇÂ¼	
-	@RequestMapping("/tologin")
+	@RequestMapping("/tologin.action")
 	public String tologin() {
 		return "login";
 	}
 
 	@RequestMapping("/login")
-	public String login(User user, HttpSession session) {
+	public String login(User user, HttpSession session,HttpServletResponse response) {
 		List<User> users = userService.findByName(user.getName());
 		String password = user.getPassword();
 		if (!users.isEmpty()) {
@@ -47,6 +49,9 @@ public class UserController {
 			if (password.equals(realPassword)) {
 				// ÃÜÂëÕýÈ· -> µÇÂ¼³É¹¦
 				session.setAttribute("USER_SESSION", users.get(0));
+				Cookie cookie=new Cookie("user", users.get(0).getId()+"-"+user.getName());
+				cookie.setMaxAge(3*24*60*60);
+				response.addCookie(cookie);
 				return "main";
 			} else {
 				// ÃÜÂë´íÎó -> µÇÂ¼Ê§°Ü
@@ -63,7 +68,7 @@ public class UserController {
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.setAttribute("msg", "");
-		return "redirect:tologin";
+		return "login";
 	}
 
 // ÓÃ»§×¢²á	

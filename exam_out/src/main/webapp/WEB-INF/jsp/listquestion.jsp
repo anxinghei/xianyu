@@ -48,9 +48,6 @@ width:150px;
           		<td>
                     <button onclick="qq_onclick()" style="width: 50px; height: 20px;">详情</button>
                 </td>
-          		<td>
-                    <button onclick="qq_close()" style="width: 50px; height: 20px;">关闭</button>
-                </td>
           	</tr>
           	<tr id="all" hidden="hidden">
           		<th >
