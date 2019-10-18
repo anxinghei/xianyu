@@ -9,7 +9,7 @@
 </head>
 <body>
 	${USER_SESSION.name}  
-	<a href="touser">查看个人信息</a>
+	<a href="touser">查看已创建试卷</a>
 	<a href="logout">退出</a><br/>
 	<a href="catelist?subid=${USER_SESSION.subid}">选择科目出题</a>
 	

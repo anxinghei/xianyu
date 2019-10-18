@@ -44,10 +44,11 @@ width:150px;
           		</td>
           		<td>
           			<div >${question.getContent()}</div>
+          			--------------------------------------------------------------------------------------
           		</td>
-          		<td>
-                    <button onclick="qq_onclick()" style="width: 50px; height: 20px;">详情</button>
-                </td>
+<!--           		<td> -->
+<!--                     <button onclick="qq_onclick()" style="width: 50px; height: 20px;">详情</button> -->
+<!--                 </td> -->
           	</tr>
           	<tr id="all" hidden="hidden">
           		<th >
