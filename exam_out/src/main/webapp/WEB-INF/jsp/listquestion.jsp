@@ -33,7 +33,7 @@ width:150px;
 	<a href="catelist?subid=${USER_SESSION.subid}">返回</a>
 	<br/>
 	<form action="addtoexam" method="post">
-	 <table width="250" bsub="1">
+	 <table width="500" bsub="1">
     	<tr>    		
             <th>题目</th>
         </tr>
@@ -43,7 +43,7 @@ width:150px;
           			<input type="checkbox" name="ids" value="${question.getId()}"/>
           		</td>
           		<td>
-          			<div class="over">${question.getContent()}</div>
+          			<div >${question.getContent()}</div>
           		</td>
           		<td>
                     <button onclick="qq_onclick()" style="width: 50px; height: 20px;">详情</button>
@@ -56,7 +56,7 @@ width:150px;
           	</tr>
         </c:forEach>
      </table>
-     <tr colspan="2" align="center">
+     <tr colspan="20" align="center">
      	<td>
           	试卷名：<input type="text" name="examname" value="examname"/>
         </td>

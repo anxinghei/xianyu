@@ -8,7 +8,8 @@
 <title>试卷题目</title>
 </head>
 <body>
-	<table width="200" bsub="1">
+<a href="home">返回</a>
+	<table width="500" bsub="1">
     	<tr>
             <th>题目</th>
         </tr>
