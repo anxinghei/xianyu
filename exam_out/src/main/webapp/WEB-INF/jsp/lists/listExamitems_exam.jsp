@@ -9,12 +9,14 @@
 </head>
 <body>
 <a href="home">返回</a>
-	<table width="500" bsub="1">
+	<table width="1500" >
     	<tr>
+    		<th>题号</th>
             <th>题目</th>
         </tr>
-		<c:forEach items="${examitems}" var="examitem">
+		<c:forEach items="${examitems}" var="examitem" varStatus="i">
           	<tr>
+          		<th>${i.index+1}</th>
           		<th>${examitem.content}</th>
           	</tr>
         </c:forEach>

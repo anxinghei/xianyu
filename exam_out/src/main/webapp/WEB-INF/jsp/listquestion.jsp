@@ -33,7 +33,7 @@ width:150px;
 	<a href="catelist?subid=${USER_SESSION.subid}">返回</a>
 	<br/>
 	<form action="addtoexam" method="post">
-	 <table width="500" bsub="1">
+	 <table width="1500" >
     	<tr>    		
             <th>题目</th>
         </tr>
@@ -44,7 +44,7 @@ width:150px;
           		</td>
           		<td>
           			<div >${question.getContent()}</div>
-          			--------------------------------------------------------------------------------------
+          		
           		</td>
 <!--           		<td> -->
 <!--                     <button onclick="qq_onclick()" style="width: 50px; height: 20px;">详情</button> -->

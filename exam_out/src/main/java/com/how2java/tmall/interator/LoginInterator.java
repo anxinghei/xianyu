@@ -19,26 +19,27 @@ public class LoginInterator implements HandlerInterceptor{
 		Boolean iscook=false;
 		if(cookies!=null) {
 			for(Cookie cookie:cookies) {
-				// ´æÔÚuser
+				// ï¿½ï¿½ï¿½ï¿½user
 				if("user".equals(cookie.getName())) {
-					// ÉèÖÃµÇÂ¼ÓÃ»§
+					// ï¿½ï¿½ï¿½Ãµï¿½Â¼ï¿½Ã»ï¿½
 					HttpSession session=request.getSession();
 					String string=cookie.getValue();
 					String[] strings=string.split("-");
 					User user=new User();
 					user.setId(Integer.valueOf(strings[0]));
 					user.setName(strings[1]);
+					user.setSubid(Short.valueOf(strings[2]));
 					session.setAttribute("USER_SESSION", user);
-					// ÖØ¶¨Ïò
-					response.sendRedirect("/tmall_ssm_pagehelper_generator/home");
+					// ï¿½Ø¶ï¿½ï¿½ï¿½
+					response.sendRedirect("/exam/home");
 					iscook=true;
 				}
 			}
-			// ´æÔÚCookies£¬µ«Ã»ÓÐ"user"
+			// ï¿½ï¿½ï¿½ï¿½Cookiesï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½"user"
 			if(iscook==false)
 				request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		}else {
-			request.setAttribute("msg", "Äú»¹Ã»ÓÐµÇÂ¼£¬ÇëÏÈµÇÂ¼£¡");
+			request.setAttribute("msg", "ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ðµï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½Â¼ï¿½ï¿½");
 			request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		}
 //		String url=request.getRequestURI();
@@ -48,7 +49,7 @@ public class LoginInterator implements HandlerInterceptor{
 //		User user=(User)session.getAttribute("USER_SESSION");
 //		if(user!=null)
 //			return true;
-//		request.setAttribute("msg", "Äú»¹Ã»ÓÐµÇÂ¼£¬ÇëÏÈµÇÂ¼£¡");
+//		request.setAttribute("msg", "ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ðµï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½Â¼ï¿½ï¿½");
 //		request.getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);
 		return false;
 	}

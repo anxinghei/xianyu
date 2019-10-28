@@ -33,7 +33,7 @@ public class UserController {
 	@Autowired
 	ExamService examService;
 
-// ÓÃ»§µÇÂ¼	
+// ï¿½Ã»ï¿½ï¿½ï¿½Â¼	
 	@RequestMapping("/tologin.action")
 	public String tologin() {
 		return "login";
@@ -44,34 +44,36 @@ public class UserController {
 		List<User> users = userService.findByName(user.getName());
 		String password = user.getPassword();
 		if (!users.isEmpty()) {
-			// ÓÃ»§ÃûÕıÈ·
+			// ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½È·
 			String realPassword = users.get(0).getPassword();
 			if (password.equals(realPassword)) {
-				// ÃÜÂëÕıÈ· -> µÇÂ¼³É¹¦
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È· -> ï¿½ï¿½Â¼ï¿½É¹ï¿½
 				session.setAttribute("USER_SESSION", users.get(0));
-				Cookie cookie=new Cookie("user", users.get(0).getId()+"-"+user.getName());
+				Cookie cookie=new Cookie("user", users.get(0).getId()+"-"+user.getName()+"-"+users.get(0).getSubid());
 				cookie.setMaxAge(3*24*60*60);
 				response.addCookie(cookie);
+				System.out.println(cookie.getValue());
 				return "main";
 			} else {
-				// ÃÜÂë´íÎó -> µÇÂ¼Ê§°Ü
-				session.setAttribute("msg", "ÓÃ»§Ãû»òÃÜÂë´íÎó£¬ÇëÖØĞÂµÇÂ¼£¡");
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½Â¼Ê§ï¿½ï¿½
+				session.setAttribute("msg", "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯");
 				return "login";
 			}
 		}
-		// ÓÃ»§Ãû´íÎó
-		session.setAttribute("msg", "ÓÃ»§Ãû»òÃÜÂë´íÎó£¬ÇëÖØĞÂµÇÂ¼£¡");
+		// ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		session.setAttribute("msg", "ç”¨æˆ·ä¸å­˜åœ¨");
 		return "login";
 	}
 
-// ÍË³öµÇÂ¼		
+// ï¿½Ë³ï¿½ï¿½ï¿½Â¼		
 	@RequestMapping("/logout")
 	public String logout(HttpSession session) {
 		session.setAttribute("msg", "");
+//		session.setAttribute("USER_SESSION","");
 		return "login";
 	}
 
-// ÓÃ»§×¢²á	
+// ï¿½Ã»ï¿½×¢ï¿½ï¿½	
 	@RequestMapping(value = "/toregister", method = RequestMethod.GET)
 	public String toregister(Model model, @RequestParam(value = "pageNum", defaultValue = "1") int num) {
 		PageHelper.startPage(num, 5);
@@ -88,24 +90,24 @@ public class UserController {
 		if (!username.isEmpty() && !user.getPassword().isEmpty() && user.getSubid() != null) {
 			List<User> users = userService.findByName(username);
 			if (!users.isEmpty()) {
-				model.addAttribute("zhuce", "ÓÃ»§ÃûÒÑ´æÔÚ£¬ÇëÖØĞÂ×¢²á£¡");
+				model.addAttribute("zhuce", "ç”¨æˆ·å·²å­˜åœ¨");
 				return "register";
 			} else
 				userService.addUser(user);
 			return "redirect:tologin";
 		} else {
-			model.addAttribute("zhuce", "×¢²áĞÅÏ¢Îª¿Õ£¬ÇëÖØĞÂ×¢²á£¡");
+			model.addAttribute("zhuce", "×¢ç”¨æˆ·ä¿¡æ¯ä¸å®Œæ•´");
 			return "register";
 		}
 	}
 
-// ·µ»ØÖ÷²Ëµ¥	
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½	
 	@RequestMapping("/home")
 	public String home() {
 		return "main";
 	}
 
-// ²é¿´¸öÈËĞÅÏ¢	
+// ï¿½é¿´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢	
 	@RequestMapping("/touser")
 	public String touser(HttpSession session, @RequestParam(value = "pageNum", defaultValue = "1") int num) {
 		User user=(User)session.getAttribute("USER_SESSION");
