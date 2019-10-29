@@ -27,4 +27,12 @@ public class QuestionServiceImpl implements QuestionService{
 	public Question findById(int id) {
 		return questionmapper.selectByPrimaryKey(id);
 	}
+
+	@Override
+	public void addQuestion(short catid,String question) {
+		Question record=new Question();
+		record.setCatid(catid);
+		record.setContent(question);
+		questionmapper.insert(record);
+	}
 }
