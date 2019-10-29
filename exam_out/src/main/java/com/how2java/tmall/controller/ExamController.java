@@ -70,9 +70,32 @@ public class ExamController {
 		Category category=CategoryService.findById(exam.getCatid());
 		map.put("category", category.getName());
 		List<Examitems> items=examitemsService.list(id);
-		for (int i = 0; i < items.size(); i++) {		
-			map.put("id", i);
-			map.put("content", items.get(i).getContent());
+		String idString="";
+		String contentString="";
+		int num=0;
+		if (items.size()>=24) {
+			for (int i = 0; i <24; i++) {
+				num=i+1;
+				idString="id"+num;
+				contentString="content"+num;
+				map.put(idString, num);
+				map.put(contentString, items.get(i).getContent());
+			}
+		}else {
+			for (int i = 0; i < items.size(); i++) {
+				num=i+1;
+				idString="id"+num;
+				contentString="content"+num;
+				map.put(idString, num);
+				map.put(contentString, items.get(i).getContent());
+			}
+			for (int i = items.size(); i <24; i++) {
+				num=i+1;
+				idString="id"+num;
+				contentString="content"+num;
+				map.put(idString, " ");
+				map.put(contentString," ");
+			}
 		}
 		System.out.println(map);
 		boolean b = new DocumentHandler().exportDoc("temp", exam.getName(), map, resp);
