@@ -94,7 +94,7 @@ public class UserController {
 				return "register";
 			} else
 				userService.addUser(user);
-			return "redirect:tologin";
+			return "redirect:tologin.action";
 		} else {
 			model.addAttribute("zhuce", "ע用户信息不完整");
 			return "register";
