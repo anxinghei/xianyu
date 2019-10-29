@@ -8,8 +8,9 @@
 <title>用户信息</title>
 </head>
 <body>
+	<br/><br/>
 	<a href="home">返回</a>
-	<br/>
+	<br/><br/>
 	<%@include file="../jsp/lists/listExam_main.jsp"%>
 </body>
 </html>

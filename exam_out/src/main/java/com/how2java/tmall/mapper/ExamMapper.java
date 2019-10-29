@@ -11,4 +11,6 @@ public interface ExamMapper {
 	public Exam findByName(String name);
 	
 	public List<Exam> list(int userid);
+	
+	public Exam findById(int id);
 }

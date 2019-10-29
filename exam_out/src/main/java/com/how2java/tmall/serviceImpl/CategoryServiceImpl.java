@@ -24,4 +24,9 @@ public class CategoryServiceImpl implements CategoryService{
 		return categorymapper.selectByExample(example);
 	}
 
+	@Override
+	public Category findById(int cateId) {
+		return categorymapper.selectByPrimaryKey(cateId);
+	}
+
 }

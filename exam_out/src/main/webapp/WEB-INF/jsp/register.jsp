@@ -8,8 +8,9 @@
 <title>免费注册</title>
 </head>
 <body>
+	<br/><br/>
 	<a href="tologin.action">返回登录界面</a>
-	<br/>
+	<br/><br/>
 	${zhuce}
 	<form method="post" id="addForm" action="register" enctype="multipart/form-data">
         <table>

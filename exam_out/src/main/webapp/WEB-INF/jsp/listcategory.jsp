@@ -6,11 +6,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>科目选择</title>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>	
+<link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 	
+<script src="static/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
+	<br/><br/>
 	<a href="home">返回</a>
-	<br/>
-	 <table width="150" bsub="1">
+	<br/><br/>
+	 <table width="150" bsub="1" class="table table-bordered">
     	<tr>
         	<th>ID</th>
             <th>科目名</th>

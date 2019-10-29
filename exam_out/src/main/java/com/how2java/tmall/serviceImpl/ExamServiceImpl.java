@@ -29,4 +29,9 @@ public class ExamServiceImpl implements ExamService{
 	public List<Exam> list(int userid) {
 		return exammapper.list(userid);
 	}
+
+	@Override
+	public Exam findById(int id) {
+		return exammapper.findById(id);
+	}
 }

@@ -13,12 +13,13 @@
 <title>题目选择</title>
 </head>
 <body>
+	<br/><br/>
 	<a href="catelist?subid=${USER_SESSION.subid}">返回</a>
-	<br/>
+	<br/><br/>
 	<div>
 		<button type="button" class="btn btn-primary" data-toggle="modal"
 			data-target="#toAddQuestion">增加题目</button>
-	</div>
+	</div><br/>
 	<div class="modal fade bs-example-modal-sm" id="toAddQuestion" tabindex="-1"
 		role="dialog" aria-labelledby="toAddQuestionLabel">
 		<div class="modal-dialog">
@@ -44,9 +45,9 @@
 		</div>
 	</div>
 	<form action="addtoexam" method="post">
-	 <table width="1500" >
+	 <table width="1500" class="table table-hover">
     	<tr>    		
-            <th>题目</th>
+            <th></th>
         </tr>
 		<c:forEach items="${questions}" var="question">
           	<tr>
@@ -73,7 +74,7 @@
         <button type="submit">创建试卷</button>
         </td>
      </tr>
-    </form>  
+    </form>  <br/><br/>
     
 <script type="text/javascript" async="true">
     function addQuestion(catid){

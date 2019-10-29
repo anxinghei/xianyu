@@ -14,4 +14,8 @@
 		select * from exam where userid=#{userid}
 	</select>
 	
+	<select id="findById" parameterType="Integer" resultType="com.how2java.tmall.pojo.Exam">
+		select * from exam where id=#{id}
+	</select>
+	
 </mapper>

@@ -6,10 +6,14 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>试卷题目</title>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>	
+<link href="static/bootstrap/css/bootstrap.min.css" rel="stylesheet"> 	
+<script src="static/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
-<a href="home">返回</a>
-	<table width="1500" >
+<br/><br/>
+<a href="home">返回</a><br/><br/>
+	<table width="1500" class="table table-hover">
     	<tr>
     		<th>题号</th>
             <th>题目</th>
